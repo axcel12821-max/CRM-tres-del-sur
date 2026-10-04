@@ -1,0 +1,15 @@
+# Netlify detecta Next.js automáticamente (adaptador @netlify/plugin-nextjs / OpenNext).
+[build]
+  command = "npm run build"
+  publish = ".next"
+
+[build.environment]
+  NODE_VERSION = "22"
+  NEXT_TELEMETRY_DISABLED = "1"
+
+# Funciones propias (crons): netlify/functions
+#   cron-notify      → scheduled 21:00 UTC (digest diario)
+#   cron-followup    → scheduled 13/17/21 UTC → dispara followup-worker
+#   followup-worker  → background function (hasta 15 min)
+[functions]
+  directory = "netlify/functions"
